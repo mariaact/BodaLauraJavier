@@ -1,4 +1,30 @@
 <head>
+
+  <script>
+
+    function hideAlert() {
+      setTimeout(function() {
+        document.querySelector('.alert').style.display = 'none';
+      }, 5000); 
+    }
+
+    window.onload = function() {
+      hideAlert();
+    };
+
+    document.addEventListener('mousemove', resetIdleTimer);
+    document.addEventListener('keydown', resetIdleTimer);
+  </script>
+
+<script>
+
+  if (performance.navigation.type === 1) {
+    window.location.href = '/';
+  }
+
+</script>
+
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -43,7 +69,6 @@
             previousTimeZone[id] = zone;
           }
 
-          // init countdown timer || || endTime changed || zone changed
           if (!$(this).data('countdown-bound') || newDate || previousTimeZone[id] !== zone) {
             previousTimeZone[id] = zone;
             $(this).data('countdown-bound', true);
@@ -178,6 +203,8 @@
         max-width: 100%;
         border-radius: 0 !important;
       }
+
+  
     }
 
     .ml-notification.bottom {
@@ -3093,6 +3120,12 @@
 
 <body>
 
+  <% if (success) { %>
+    <div class="alert alert-success" role="alert">
+      ¡Formulario enviado con éxito!
+    </div>
+    <% } %>
+
   <!-- Items -->
 
   <main id="main"></main>
@@ -3335,7 +3368,7 @@
       <h2 style="color:  rgb(129, 115, 95);">Formulario</h2>
     </center>
     <div class="formulario " style="padding-top: 0.625em;">
-      <form>
+      <form  action="/submit" method="post">
         <label for="nombre">Nombre y apellidos:</label><br>
         <input type="text" id="nombre" name="nombre" required><br><br>
 
@@ -3343,22 +3376,23 @@
         <label for="acompanado">¿Vienes acompañado?</label><br>
         <input type="radio" id="siAcompanado" name="acompanado" value="si" required>
         <label for="si">Sí</label><br>
-        <input type="radio" id="noAcompanado" name="acompanado" value="no">
+        <input type="radio" id="noAcompanado" name="acompanado" value="no" required>
         <label for="no">No</label><br><br>
 
-
+<!--
         <div id="acompanadosNinos" style="display: none;">
           <label for="nombre">Nombre del acompañante:</label><br>
           <input type="text" id="nombreA" name="nombreA"><br><br>
 
-          <!-- quitar lo de los niños-->
+           quitar lo de los niños
           <label for="acompanado">¿Vienes con niños?</label><br>
-          <input type="radio" id="siNinos" name="acompanadoNinos" value="siNinos" required>
+          <input type="radio" id="siNinos" name="acompanadoNinos" value="siNinos" >
           <label for="si">Sí</label><br>
           <input type="radio" id="noNinos" name="acompanadoNinos" value="noNinos">
           <label for="no">No</label><br><br>
 
         </div>
+-->
 
         <div id="divCantidadNinos" style="display: none;">
           <label for="nombre">¿Cuántos?</label><br>
@@ -3368,7 +3402,7 @@
         <label for="acompanado">¿Necesitas que te reservemos alguna plaza en el autobús?</label><br>
         <input type="radio" id="siPlazaBus" name="plazaBus" value="siPlazaBus" required>
         <label for="si">Sí</label><br>
-        <input type="radio" id="noPlazaBus" name="plazaBus" value="noPlazaBus">
+        <input type="radio" id="noPlazaBus" name="plazaBus" value="noPlazaBus" required>
         <label for="no">No</label><br><br>
 
         <div id="divCantidadPlazaBus" style="display: none;">
@@ -3380,7 +3414,7 @@
         <label for="acompanado">¿Tienes alguna alergia o intolerancia alimenticia?</label><br>
         <input type="radio" id="siAlergia" name="alergia" value="siAlergia" required>
         <label for="si">Sí</label><br>
-        <input type="radio" id="noAlergia" name="alergia" value="noAlergia">
+        <input type="radio" id="noAlergia" name="alergia" value="noAlergia" required>
         <label for="no">No</label><br><br>
 
         <div id="divAlergiaAlimento" style="display: none;">
@@ -3391,7 +3425,7 @@
         <label for="acompanado">¿Necesitas menú vegano/vegetariano/sin gluten u otro especial?</label><br>
         <input type="radio" id="siMenu" name="Menu" value="siMenu" required>
         <label for="si">Sí</label><br>
-        <input type="radio" id="noMenu" name="Menu" value="noMenu">
+        <input type="radio" id="noMenu" name="Menu" value="noMenu" required>
         <label for="no">No</label><br><br>
 
         <div id="divTipoMenu" style="display: none;">
@@ -3413,9 +3447,6 @@
     const siAcompanado = document.getElementById('siAcompanado');
     const noAcompanado = document.getElementById('noAcompanado');
 
-    const siNinos = document.getElementById('siNinos');
-    const noNinos = document.getElementById('noNinos');
-
     const siPlazaBus = document.getElementById('siPlazaBus');
     const noPlazaBus = document.getElementById('noPlazaBus');
 
@@ -3424,10 +3455,6 @@
    
     const siMenu = document.getElementById('siMenu');
     const noMenu = document.getElementById('noMenu');
-
-    const acompanadosNinosDiv = document.getElementById('acompanadosNinos');
-
-    const cantidadNinosDiv = document.getElementById('divCantidadNinos');
 
     const divCantidadPlazaBus = document.getElementById('divCantidadPlazaBus');
    
@@ -3450,21 +3477,6 @@
         acompanadosNinosDiv.style.display = 'none';
       }
     });
-
-    siNinos.addEventListener('change', () => {
-      if (siNinos.checked) {
-        cantidadNinosDiv.style.display = 'block';
-      } else {
-        cantidadNinosDiv.style.display = 'none';
-      }
-    });
-
-    noNinos.addEventListener('change', () => {
-      if (noNinos.checked) {
-        cantidadNinosDiv.style.display = 'none';
-      }
-    });
-
 
     siPlazaBus.addEventListener('change', () => {
       if (siPlazaBus.checked) {
@@ -3634,6 +3646,10 @@
 
     window.onload = initMap;
   </script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 
