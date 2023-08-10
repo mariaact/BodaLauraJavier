@@ -11,6 +11,8 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 /*-----------------------*/
+
+const mongoose = require('mongoose');
 const session = require('express-session');
 app.use(session({
   secret: 'tu_secreto_aqui',
@@ -31,7 +33,74 @@ app.get('/', (req, res) => {
  // res.render('index');
 });
 
-app.post('/submit', (req, res) => {
+
+const { MongoClient } = require('mongodb');
+
+
+// Configuración de la conexión a MongoDB
+const uri = 'mongodb://127.0.0.1/laurayjavi';
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+async function connect() {
+  try {
+    await client.connect();
+    console.log('Conexión exitosa a MongoDB');
+  } catch (error) {
+    console.error('Error de conexión a MongoDB:', error);
+  }
+}
+
+connect();
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.post('/submit', async (req, res) => {
+  const {
+    nombre,
+    acompanado,
+    nombreAcompanado,
+    plazaBus,
+    cantidadPlazaBus,
+    alergia,
+    alergiaAlimento,
+    Menu,
+    tipoMenu
+  } = req.body;
+
+  const formularioData = {
+    nombre,
+    acompanado,
+    nombreAcompanado,
+    plazaBus,
+    cantidadPlazaBus: parseInt(cantidadPlazaBus),
+    alergia,
+    alergiaAlimento,
+    Menu,
+    tipoMenu
+  };
+
+  try {
+    const db = client.db('laurayjavi');
+    const formularioCollection = db.collection('formulario');
+
+    await formularioCollection.insertOne(formularioData);
+
+    console.log(formularioData); // Antes de desestructurar los valores
+
+
+    console.log('Registro insertado correctamente en MongoDB');
+    res.redirect('/?success=true');
+  } catch (error) {
+    console.error('Error al guardar el registro en MongoDB:', error);
+    res.status(500).send('Error al enviar el formulario');
+  }
+});
+
+
+
+
+/*app.post('/submit', (req, res) => {
   const { nombre, acompanado, nombreAcompanado, plazaBus, cantidadPlazaBus, alergia, alergiaAlimento, Menu, tipoMenu } = req.body;
 
   const phpScript = `php public/php/insert.php "${nombre}" "${acompanado}" "${nombreAcompanado}" "${plazaBus}" "${cantidadPlazaBus}" "${alergia}" "${alergiaAlimento}" "${Menu}" "${tipoMenu}"`;
@@ -46,7 +115,7 @@ app.post('/submit', (req, res) => {
       res.redirect('/?success=true');
     }
   });
-});
+});*/
 
 
 
