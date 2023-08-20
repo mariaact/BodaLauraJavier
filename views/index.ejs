@@ -1,15 +1,13 @@
 <head>
 
   <script>
-<<<<<<< HEAD
-
     function hideAlert() {
       setTimeout(function() {
         document.querySelector('.alert').style.display = 'none';
       }, 5000); 
     }
 
-=======
+
     // Función para ocultar la alerta después de un tiempo específico
     function hideAlert() {
       setTimeout(function() {
@@ -18,33 +16,27 @@
     }
 
     // Ejecutar la función al cargar la página
->>>>>>> b6242fe6f0a23d7f76928ecf91bf770bde0a2962
     window.onload = function() {
       hideAlert();
     };
 
-<<<<<<< HEAD
-=======
     // Detectar actividad del usuario y reiniciar el temporizador
->>>>>>> b6242fe6f0a23d7f76928ecf91bf770bde0a2962
     document.addEventListener('mousemove', resetIdleTimer);
     document.addEventListener('keydown', resetIdleTimer);
   </script>
 
 <script>
-<<<<<<< HEAD
 
   if (performance.navigation.type === 1) {
     window.location.href = '/';
   }
 
-=======
+
   // Redireccionar a la página de destino después de recargar
   if (performance.navigation.type === 1) {
     // Recarga de la página
     window.location.href = '/';
   }
->>>>>>> b6242fe6f0a23d7f76928ecf91bf770bde0a2962
 </script>
 
 
