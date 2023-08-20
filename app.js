@@ -69,9 +69,6 @@ app.post('/submit', async (req, res) => {
     tipoMenu
   } = req.body;
 
-  console.log('-----------------------------')
-  console.log(req.body)
-  console.log('-----------------------------')
 
 
   const formularioData = {
