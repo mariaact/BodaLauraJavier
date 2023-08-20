@@ -38,7 +38,7 @@ const { MongoClient } = require('mongodb');
 
 
 // Configuración de la conexión a MongoDB
-const uri = 'mongodb://127.0.0.1/laurayjavi';
+const uri = 'mongodb://mongo:PIWMwSqbh2bO4LFKaa65@containers-us-west-204.railway.app:7084';
 //const uri = 'mongodb://mongo:PIWMwSqbh2bO4LFKaa65@containers-us-west-204.railway.app:7084';
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
