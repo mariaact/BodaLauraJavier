@@ -60,7 +60,7 @@ app.post('/submit', async (req, res) => {
   const {
     nombre,
     acompanado,
-    nombreAcompanado,
+    nombreA,
     plazaBus,
     cantidadPlazaBus,
     alergia,
@@ -69,10 +69,15 @@ app.post('/submit', async (req, res) => {
     tipoMenu
   } = req.body;
 
+  console.log('-----------------------------')
+  console.log(req.body)
+  console.log('-----------------------------')
+
+
   const formularioData = {
     nombre,
     acompanado,
-    nombreAcompanado,
+    nombreA,
     plazaBus,
     cantidadPlazaBus: parseInt(cantidadPlazaBus),
     alergia,
