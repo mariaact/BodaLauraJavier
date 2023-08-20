@@ -3661,32 +3661,45 @@
 
 
 
-      <script>
-        // Crea una función para inicializar el mapa y dibujar la ruta
-        function initMap() {
-          var map = L.map('map').setView([40.67817274214118, -3.706116278658542], 13); // Coordenadas del centro del mapa
+<script>
+  // Crea una función para inicializar el mapa y dibujar la ruta
+  function initMap() {
+   // var map = L.map('map').setView([40.67817274214118, -3.706116278658542], 2); // Coordenadas del centro del mapa
+   var map = L.map('map').setView([40.665, -3.7], 20); // Ajusta las coordenadas y el nivel de zoom
 
-          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-          // Define las coordenadas de inicio y fin de la ruta
-          var startPoint = L.latLng(40.658009008271584, -3.7664719171884222);
-          var endPoint = L.latLng(40.6839090453442, -3.650114432529451);
+    // Define las coordenadas de inicio y fin de la ruta
+    var startPoint = L.latLng(40.658009008271584, -3.7664719171884222);
+    var endPoint = L.latLng(40.6839090453442, -3.650114432529451);
 
-          // Crea un objeto de control de rutas y especifica el modo de transporte (andando o en coche)
-          var routeControl = L.Routing.control({
-            waypoints: [startPoint, endPoint],
-            routeWhileDragging: true, // Permitir que se actualice la ruta mientras se arrastra el marcador final
-            router: new L.Routing.OSRMv1({
-              serviceUrl: 'https://router.project-osrm.org/route/v1'
-            }), // Servicio OSRM para rutas
-            show: false // Ocultar las instrucciones de cómo ir
-          }).addTo(map);
-        }
+    var startPoint1 = L.latLng(40.42514484565948, -3.6715520376182336); //Wizink
+    var endPoint1 = L.latLng(40.658009008271584, -3.7664719171884222); 
 
-        window.onload = initMap;
-      </script>
+    // Crea un objeto de control de rutas y especifica el modo de transporte (andando o en coche)
+    var routeControl = L.Routing.control({
+      waypoints: [startPoint, endPoint],
+      routeWhileDragging: true, // Permitir que se actualice la ruta mientras se arrastra el marcador final
+      router: new L.Routing.OSRMv1({
+        serviceUrl: 'https://router.project-osrm.org/route/v1'
+      }), // Servicio OSRM para rutas
+      show: false // Ocultar las instrucciones de cómo ir
+    }).addTo(map);
+
+    var routeControl1 = L.Routing.control({
+      waypoints: [startPoint1, endPoint1],
+      routeWhileDragging: true,
+      router: new L.Routing.OSRMv1({
+        serviceUrl: 'https://router.project-osrm.org/route/v1'
+      }),
+      show: false
+    }).addTo(map);
+  }
+
+  window.onload = initMap;
+</script>
 
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
