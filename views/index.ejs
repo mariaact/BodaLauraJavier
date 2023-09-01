@@ -3402,7 +3402,7 @@
       <div class="container-fluid ml-lp-25 "
         style="padding-top: 0.625em; padding-bottom: 0.625em; background-color: white;">
         <center>
-          <h2 style="color:  rgb(129, 115, 95);">Formulario</h2> <br>
+          <h2 style="color:  rgb(129, 115, 95); ">Formulario</h2> <br>
         </center>
         <div class="formulario " style="padding-top: 0.625em;">
           <form action="/submit" method="post">
@@ -3443,7 +3443,7 @@
 -->
 
 
-            <label for="acompanado">¿Necesitas que te reservemos alguna plaza en el autobús?</label><br>
+            <label for="acompanado">¿Necesitas que te reservemos plaza en el autobús?</label><br>
             <input type="radio" id="siPlazaBus" name="plazaBus" value="siPlazaBus">
             <label for="si">Sí</label><br>
             <input type="radio" id="noPlazaBus" name="plazaBus" value="noPlazaBus" required>
@@ -3689,6 +3689,7 @@
       }), // Servicio OSRM para rutas
       show: false // Ocultar las instrucciones de cómo ir
     }).addTo(map);
+
 
     var routeControl1 = L.Routing.control({
       waypoints: [startPoint1, endPoint1],
