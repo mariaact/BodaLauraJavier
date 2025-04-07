@@ -659,6 +659,9 @@
 
     .divHeader {
       margin-top: 6%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   </style>
 
@@ -3174,14 +3177,24 @@
           max-width: 50em;
           height: 28em;
         }
+
+        .cuerpoTarjetaHeader{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .tarjetaHeader{
+          border-radius: 1%;
+        }
       </style>
 
       <div class="container-fluid ml-lp-8 ">
         <div class="container with-large-gutters divHeader">
           <div class="row justify-content-center">
             <div class="col col-sm-12">
-              <div class="card card-large shadow-sm">
-                <div class="card-body">
+              <div class="card card-large shadow-sm tarjetaHeader">
+                <div class="card-body cuerpoTarjetaHeader">
                   <div class="row large-gutters align-items-center">
 
                     <!-- Media -->
@@ -3190,7 +3203,7 @@
                       <div>
                         <div class="image-block-9 text-center w-100">
                           <img src="images\LauraJavier.jpg" border="0" alt="" class="img-fluid d-inline" width="930"
-                            style="display: block;">
+                            style="display: block; border-radius: 5%;">
                         </div>
                       </div>
                     </div>
