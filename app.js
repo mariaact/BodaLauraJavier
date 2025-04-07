@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -38,7 +39,7 @@ const { MongoClient } = require('mongodb');
 
 
 // Configuración de la conexión a MongoDB
-const uri = 'mongodb://mongo:PIWMwSqbh2bO4LFKaa65@containers-us-west-204.railway.app:7084';
+const uri = process.env.MONGODB_URI;
 //const uri = 'mongodb://mongo:PIWMwSqbh2bO4LFKaa65@containers-us-west-204.railway.app:7084';
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
