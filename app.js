@@ -39,7 +39,8 @@ const { MongoClient } = require('mongodb');
 
 
 // Configuración de la conexión a MongoDB
-const uri = 'mongodb+srv://root:ToqImC2ewoUBuXfh@bodalaurajavi.cpbisnx.mongodb.net/?retryWrites=true&w=majority&appName=BodaLauraJavi';
+const uri = process.env.MONGODB_URI;
+//const uri = 'mongodb+srv://root:ToqImC2ewoUBuXfh@bodalaurajavi.cpbisnx.mongodb.net/?retryWrites=true&w=majority&appName=BodaLauraJavi';
 //const uri = 'mongodb://mongo:PIWMwSqbh2bO4LFKaa65@containers-us-west-204.railway.app:7084';
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
