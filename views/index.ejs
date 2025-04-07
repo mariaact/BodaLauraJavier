@@ -51,10 +51,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.css">
 
-
-
-
-
   <script src="https://assets.mlcdn.com/ml/jquery/jquery-3.4.1.min.js"></script>
   <script>
     (function ($) {
@@ -178,8 +174,6 @@
       window['timerinterval' + id] = setInterval(updateClock, 1000);
     }
   </script>
-
-
 
   <style type="text/css">
     .ml-notification {
@@ -659,8 +653,12 @@
 
     .container.with-large-gutters,
     .container-fluid.with-large-gutters {
-      padding-left: 60px;
-      padding-right: 60px;
+      padding-left: 8%;
+      padding-right: 8%;
+    }
+
+    .divHeader {
+      margin-top: 6%;
     }
   </style>
 
@@ -3126,9 +3124,7 @@
   <script type="text/javascript"
     src="https://assets.mlcdn.com/gr/js/w/ml_jQuery.inputmask.bundle.min.js?v3.3.1"></script>
 
-
   <!-- mapa -->
-
   <!-- Incluye Leaflet desde CDN -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -3173,20 +3169,6 @@
         }
       </style>
 
-      <!--
-  <div class="container-fluid ml-lp-8 " data-aos="">
-    <div class="container with-large-gutters">
-      <div class="row">
-        <div class="col-12 col-md-8 offset-md-2">
-          <div class="card">
-            <img src="images\LauraJavier.jpg" class="card-img-top" alt="Imagen">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  -->
-
       <style>
         .card-large {
           max-width: 50em;
@@ -3195,7 +3177,7 @@
       </style>
 
       <div class="container-fluid ml-lp-8 ">
-        <div class="container with-large-gutters">
+        <div class="container with-large-gutters divHeader">
           <div class="row justify-content-center">
             <div class="col col-sm-12">
               <div class="card card-large shadow-sm">
@@ -3204,28 +3186,15 @@
 
                     <!-- Media -->
                     <div class="col-12 col-md-5 order-first image-block-8 mb-4 mb-md-0">
-
                       <!-- Image -->
                       <div>
-
                         <div class="image-block-9 text-center w-100">
                           <img src="images\LauraJavier.jpg" border="0" alt="" class="img-fluid d-inline" width="930"
                             style="display: block;">
-
                         </div>
-
-
                       </div>
-                      <!-- /Image -->
-                      <!-- Video -->
-
-
-                      <!-- Video -->
-
                     </div>
-                    <!-- /Media -->
-
-                    <!-- Content -->
+       
                     <div class="col-12 col-md-7">
 
                       <!-- Text -->
@@ -3255,7 +3224,6 @@
       </div>
 
       <!---->
-
 
       <div class="container-fluid ml-lp-17 " style="padding: 3.25em;">
         <div class="container with-large-gutters">
@@ -3298,7 +3266,6 @@
         </div>
       </div>
 
-
       <!-- Planning-->
 
       <div class="container-fluid ml-lp-21 ">
@@ -3313,18 +3280,13 @@
       </div>
 
       <div class="container-fluid ml-lp-24 " style="padding-bottom: 30px; background-color: #ffffff;">
-
         <div class="row large-gutters justify-content-center">
           <div class="col col-sm-12 text-center">
             <img src="images\planningOficial.png" border="0" alt="" class="img-fluid d-inline" width="894"
               style="display: block;">
           </div>
         </div>
-
       </div>
-
-
-      <!---->
 
       <div class="container-fluid ml-lp-19">
         <div class="container">
@@ -3361,8 +3323,6 @@
           font-weight: bold;
         }
 
-
-
         input[type="text"],
         textarea {
           width: 100%;
@@ -3380,7 +3340,6 @@
           /* Cambia el color del borde al seleccionar el campo */
         }
 
-
         input[type="submit"] {
           width: 100%;
           padding: 10px;
@@ -3396,8 +3355,6 @@
           color: rgb(129, 115, 95);
         }
       </style>
-
-
 
       <div class="container-fluid ml-lp-25 "
         style="padding-top: 0.625em; padding-bottom: 0.625em; background-color: white;">
@@ -3419,29 +3376,7 @@
             <div id="nombreAcompanante" style="display: none;">
               <label for="nombre">Nombre del acompañante:</label><br>
               <input type="text" id="nombreA" name="nombreA"><br><br>
-
             </div>
-
-            <!--
-        <div id="acompanadosNinos" style="display: none;">
-          <label for="nombre">Nombre del acompañante:</label><br>
-          <input type="text" id="nombreA" name="nombreA"><br><br>
-
-           quitar lo de los niños
-          <label for="acompanado">¿Vienes con niños?</label><br>
-          <input type="radio" id="siNinos" name="acompanadoNinos" value="siNinos" >
-          <label for="si">Sí</label><br>
-          <input type="radio" id="noNinos" name="acompanadoNinos" value="noNinos">
-          <label for="no">No</label><br><br>
-
-        </div>
-
-        <div id="divCantidadNinos" style="display: none;">
-          <label for="nombre">¿Cuántos?</label><br>
-          <input type="text" id="cantidadnNinos" name="cantidadninos"><br><br>
-        </div>
--->
-
 
             <label for="acompanado">¿Necesitas que te reservemos plaza en el autobús?</label><br>
             <input type="radio" id="siPlazaBus" name="plazaBus" value="siPlazaBus">
@@ -3477,16 +3412,13 @@
               <input type="text" id="tipoMenu" name="tipoMenu"><br><br>
             </div>
 
-
             <input type="submit" value="ENVIAR">
-
           </form>
         </div>
 
       </div>
 
       <script>
-
         const siAcompanado = document.getElementById('siAcompanado');
         const noAcompanado = document.getElementById('noAcompanado');
 
@@ -3504,8 +3436,6 @@
         const divAlergiaAlimento = document.getElementById('divAlergiaAlimento');
 
         const divTipoMenu = document.getElementById('divTipoMenu');
-
-
 
         siAcompanado.addEventListener('change', () => {
           if (siAcompanado.checked) {
@@ -3563,9 +3493,6 @@
           }
         });
 
-
-
-
       </script>
 
 
@@ -3608,60 +3535,6 @@
           </div>
         </div>
       </div>
-
-
-
-      <!--
-<div class="container-fluid ml-lp-46">
-  <div class="container with-large-gutters">
-    <div class="row large-gutters justify-content-center">
-      <div class="col justify-content-center col-sm-12">
-        <div class="row sections-repeaters align-items-center">
-          <div class="col-12 col-md-6">
-            <div class="container-fluid ml-lp-49 ">
-              <div class="container with-large-gutters" >
-                <div class="row large-gutters justify-content-center">
-                  <div class="col col-sm-12">
-                    <p><br></p>
-                    <h1 style="color: rgb(129, 115, 95)">Autobuses</h1>
-                    <p><br></p>
-                    <p style="color: rgb(129, 115, 95);">Para todos los que no quieran llevar coche, tendremos autobuses que harán la siguiente ruta:</p>
-                    <ul>
-                      <li>11:45 h - Autobús con salida Calle Goya (puerta lateral del Wizink Center). </li>
-                      <li>13:00 h -&nbsp;Ceremonia en la Basílica de La Asunción Nuestra Señora. Colmenar Viejo.
-                        </li>
-                      <li>14:30 h - Autobús con salida Calle Alto de los Leones, esquina Calle Santa Ana.</li>
-                      <li>23:30 h - Autobús con regreso a Colmenar Viejo y Madrid.</li>
-                    </ul>
-                    <p></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="container-fluid ml-lp-55  px-0">
-              <div class="with-large-gutters ">
-                <div class="row justify-content-center no-gutters">
-                  <div class="col col-sm-12">
-                    <div class="justify-content-center">
-                     
-                      <div id="map" style=" width: 100%; height: 450; background-color: #000000;"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
--->
-
-
-
 
 <script>
   // Crea una función para inicializar el mapa y dibujar la ruta
